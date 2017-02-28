@@ -29,10 +29,9 @@
                     }
                   });
         
-
         $.when(pt, obv).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, meds).done(function(patient, obv, meds) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -80,17 +79,6 @@
       } else {
         onError();
       }
-
-      $.when(pt, obv).done(function(patient, obv) {
-          p.medlist = ["TMP1", "TMP2"];
-
-          ret.resolve(p);
-        });
-      } else {
-        onError();
-      }
-
-      
 
     }
 
