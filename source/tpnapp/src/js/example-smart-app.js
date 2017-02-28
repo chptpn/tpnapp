@@ -21,12 +21,7 @@
                       }
                     }
                   });
-        var meds = smart.patient.api.fetchAll({
-                    type: 'MedicationOrder',
-                    query: {
-                      status: {"active"}
-                    }
-        });
+        
 
         $.when(pt, obv).fail(onError);
 
@@ -72,21 +67,13 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          p.hdl = "Bactrim";
-
           ret.resolve(p);
         });
       } else {
         onError();
       }
 
-      $.when(pt,meds).done(function(patient, meds) {
-          var medlist = "Bactrim";
-          p.medlist = medlist;
-      });
-      } else {
-        onError();
-      }
+      
 
     }
 
