@@ -21,6 +21,13 @@
                       }
                     }
                   });
+
+        var meds = smart.patient.api.fetchAll({
+                    type: 'MedicationOrder',
+                    query: {
+                      status: "active"
+                    }
+                  });
         
 
         $.when(pt, obv).fail(onError);
@@ -67,6 +74,15 @@
           //p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+
+          ret.resolve(p);
+        });
+      } else {
+        onError();
+      }
+
+      $.when(pt, obv).done(function(patient, obv) {
+          p.medlist = ["TMP1", "TMP2"];
 
           ret.resolve(p);
         });
@@ -160,7 +176,9 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html("Bactrim");
+    $('#hdl').html("Bactrim3");
+    var ml = p.medlist[0] + " " + p.medlist[1];
+    $("#meds").html(ml);
   };
 
 })(window);
