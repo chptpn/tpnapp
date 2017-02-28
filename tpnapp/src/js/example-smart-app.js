@@ -30,6 +30,7 @@
                   });
         
         $.when(pt, obv).fail(onError);
+        $.when(pt, meds).fail(onError);
 
         $.when(pt, obv, meds).done(function(patient, obv, meds) {
           var byCodes = smart.byCodes(obv, 'code');
