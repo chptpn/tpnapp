@@ -77,6 +77,15 @@
       } else {
         onError();
       }
+
+      $.when(pt,meds).done(function(patient, meds) {
+          var medlist = "Bactrim"
+          p.medlist = medlist;
+      });
+      } else {
+        onError();
+      }
+
     }
 
     FHIR.oauth2.ready(onReady, onError);
@@ -96,6 +105,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      medlist: {value: ''},
     };
   }
 
@@ -160,7 +170,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+    $('#hdl').html(p.medlist);
   };
 
 })(window);
