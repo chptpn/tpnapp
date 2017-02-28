@@ -88,7 +88,7 @@
 
           meds.forEach(function(script){
 
-            p.medlist = p.medlist + " " + JSON.stringify(script.medicationCodeableConcept.coding);
+            p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding));
           });
 
           ret.resolve(p);
@@ -116,7 +116,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      medlist: {},
+      medlist: [],
     };
   }
 
