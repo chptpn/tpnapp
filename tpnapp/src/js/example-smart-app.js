@@ -64,7 +64,8 @@
             p.diastolicbp = diastolicbp;
           }
 
-          p.hdl = getQuantityValueAndUnit(hdl[0]);
+          //p.hdl = getQuantityValueAndUnit(hdl[0]);
+          p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           ret.resolve(p);
