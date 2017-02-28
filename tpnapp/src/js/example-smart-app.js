@@ -24,7 +24,7 @@
         var meds = smart.patient.api.fetchAll({
                     type: 'MedicationOrder',
                     query: {
-                      status: {"active"}
+                      status: "active"
                     }
         });
 
