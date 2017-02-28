@@ -30,9 +30,6 @@
                   });
         var mstatements = smart.patient.api.fetchAll({
                     type: 'MedicationStatement',
-                    query: {
-                      status: "active"
-                    }
                   });
         
         $.when(pt, obv).fail(onError);
@@ -95,6 +92,7 @@
             meds.forEach(function(script){
 
               p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
+              p.medlist.push(JSON.stringify(script));
             });
           }
 
