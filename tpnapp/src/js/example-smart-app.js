@@ -94,7 +94,7 @@
 
           meds.forEach(function(script){
 
-            p.medlist.push(script.medicationCodeableConcept.coding.display);
+            p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
           });
 
           mstatements.forEach(function(script){
