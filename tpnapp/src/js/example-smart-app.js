@@ -92,8 +92,8 @@
             meds.forEach(function(script){
 
               p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
-              p.medlist.push(JSON.stringify(script.medicationCodeableConcept));
-              p.medlist.push(JSON.stringify(script.dosageInstruction));
+              p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding['display']));
+              p.medlist.push(JSON.stringify(script.dosageInstruction['text']));
             });
           }
 
