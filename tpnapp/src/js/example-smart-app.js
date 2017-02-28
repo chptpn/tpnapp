@@ -75,6 +75,10 @@
           p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
+          meds.forEach(function(script) {
+            p.medlist = p.medlist + script;
+          });
+
           ret.resolve(p);
         });
       } else {
@@ -166,8 +170,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html("Bactrim3");
-    var ml = p.medlist[0] + " " + p.medlist[1];
-    $("#meds").html(ml);
+    $("#meds").html(p.medlist);
   };
 
 })(window);
