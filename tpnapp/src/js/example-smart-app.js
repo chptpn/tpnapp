@@ -88,7 +88,7 @@
 
           meds.forEach(function(script){
 
-            p.medlist = p.medlist + " " + script.medicationCodeableConcept;
+            p.medlist = p.medlist + " " + script.medicationCodeableConcept.text;
           });
 
           ret.resolve(p);
