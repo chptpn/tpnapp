@@ -72,6 +72,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
+          p.hdl = "Bactrim";
+
           ret.resolve(p);
         });
       } else {
@@ -79,7 +81,7 @@
       }
 
       $.when(pt,meds).done(function(patient, meds) {
-          var medlist = "Bactrim"
+          var medlist = "Bactrim";
           p.medlist = medlist;
       });
       } else {
