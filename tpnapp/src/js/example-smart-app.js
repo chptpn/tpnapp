@@ -28,6 +28,12 @@
                       status: "active"
                     }
                   });
+        var mstatements = smart.patient.api.fetchAll({
+                    type: 'MedicationStatement',
+                    query: {
+                      status: "active"
+                    }
+                  });
         
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
@@ -88,7 +94,11 @@
 
           meds.forEach(function(script){
 
-            p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding));
+            p.medlist.push(script.medicationCodeableConcept.coding.display);
+          });
+
+          mstatements.forEach(function(script){
+            p.mstatements.push(JSON.stringify(script));
           });
 
           ret.resolve(p);
@@ -117,6 +127,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       medlist: [],
+      mstatements: [],
     };
   }
 
@@ -190,7 +201,12 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html("Bactrim3");
-    $("#meds").html(p.medlist);
+    ml = "<ul>";
+    p.medlist.forEach(function(m){
+      ml = ml + "<li>" + m + "</li>";
+    });
+    ml = ml + "</ul>";
+    $("#meds").html(ml);
   };
 
 })(window);
