@@ -21,6 +21,12 @@
                       }
                     }
                   });
+        var meds = smart.patient.api.fetchAll({
+                    type: 'MedicationOrder',
+                    query: {
+                      status: {"active"}
+                    }
+        });
 
         $.when(pt, obv).fail(onError);
 
