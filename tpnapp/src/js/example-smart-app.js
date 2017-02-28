@@ -76,8 +76,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           ret.resolve(p);
-        }
-      } else {
+        } else {
         onError();
       });
 
