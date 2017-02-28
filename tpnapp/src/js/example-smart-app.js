@@ -78,13 +78,7 @@
         onError();
       }
 
-      $.when(pt,meds).done(function(patient, meds) {
-          var medlist = "Bactrim";
-          p.medlist = medlist;
-      });
-      } else {
-        onError();
-      }
+      
 
     }
 
