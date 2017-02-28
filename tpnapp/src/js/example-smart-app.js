@@ -91,15 +91,18 @@
               }
             });
           });*/
+          if (meds.length > 0) {
+            meds.forEach(function(script){
 
-          meds.forEach(function(script){
+              p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
+            });
+          }
 
-            p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
-          });
-
-          mstatements.forEach(function(script){
-            p.mstatements.push(JSON.stringify(script));
-          });
+          if (mstatements.length > 0) {
+            mstatements.forEach(function(script){
+              p.mstatements.push(JSON.stringify(script));
+            });
+          }
 
           ret.resolve(p);
         });
