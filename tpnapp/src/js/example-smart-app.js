@@ -72,8 +72,6 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          p.hdl = "Bactrim";
-
           ret.resolve(p);
         });
       } else {
