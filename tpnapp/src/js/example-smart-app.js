@@ -75,8 +75,15 @@
           p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          meds.forEach(function(script) {
-            p.medlist = p.medlist + script;
+          smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
+            results.forEach(function(prescription) {
+              if (prescription.medicationCodeableConcept) {
+                p.medlist = p.medlist + " " + getMedicationName(prescription.medicationCodeableConcept.coding);
+              } else if (prescription.medicationReference) {
+                var med = refs(prescription, prescription.medicationReference);
+                p.medlist = p.medlist + " " + getMedicationName(med && med.code.coding || []);
+              }
+            });
           });
 
           ret.resolve(p);
@@ -155,6 +162,14 @@
     } else {
       return undefined;
     }
+  }
+
+  function getMedicationName (medCodings) {
+    var coding = medCodings.find(function(c){
+      return c.system == "http://www.nlm.nih.gov/research/umls/rxnorm";
+    });
+
+    return coding && coding.display || "Unnamed Medication(TM)"
   }
 
   window.drawVisualization = function(p) {
