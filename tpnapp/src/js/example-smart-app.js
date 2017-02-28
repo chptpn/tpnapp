@@ -75,7 +75,7 @@
           p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
+          /*smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
             results.forEach(function(prescription) {
               if (prescription.medicationCodeableConcept) {
                 p.medlist = p.medlist + " " + getMedicationName(prescription.medicationCodeableConcept.coding);
@@ -84,6 +84,11 @@
                 p.medlist = p.medlist + " " + getMedicationName(med && med.code.coding || []);
               }
             });
+          });*/
+
+          meds.forEach(function(script){
+
+            p.medlist = p.medlist + " " + script.medicationCodeableConcept;
           });
 
           ret.resolve(p);
