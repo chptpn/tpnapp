@@ -116,7 +116,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      medlist: {value: ''},
+      medlist: {},
     };
   }
 
