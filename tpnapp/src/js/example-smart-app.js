@@ -94,6 +94,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      medlist: {value: ''},
     };
   }
 
@@ -158,7 +159,7 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+    $('#hdl').html("Bactrim");
   };
 
 })(window);
