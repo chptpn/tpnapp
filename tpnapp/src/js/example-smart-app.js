@@ -222,7 +222,7 @@
     });
     ml = ml + "</ul>";
     $("#meds").html(ml);
-    $("#medstatements").html(p.medstatements);
+    $("#medstatements").html(p.mstatements);
     $("#procedures").html(p.procedures);
   };
 
