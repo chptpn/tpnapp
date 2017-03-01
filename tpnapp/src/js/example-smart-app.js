@@ -38,7 +38,7 @@
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
 
-        $.when(pt, obv, meds).done(function(patient, obv, meds) {
+        $.when(pt, obv, meds, procedures).done(function(patient, obv, meds, procedures) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -96,17 +96,19 @@
 
               p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
               p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding[0].display));
-              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));*/
-              p.medlist.push(JSON.stringify(meds));
+              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));
+              
 
-            });
+            });*/
+            p.medlist.push(JSON.stringify(meds));
           }
 
           if (mstatements.length > 0) {
             /*mstatements.forEach(function(script){
-              p.mstatements.push(JSON.stringify(script));*/
-              p.mstatements.push(JSON.stringify(mstatements));
-            });
+              p.mstatements.push(JSON.stringify(script));
+             
+            });*/
+            p.mstatements.push(JSON.stringify(mstatements));
           }
 
           if (procedures.length > 0) {
