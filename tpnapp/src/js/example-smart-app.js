@@ -109,7 +109,7 @@
              
             });*/
             p.mstatements.push(JSON.stringify(mstatements));
-          } eles {
+          } else {
             p.mstatements.push("There were no medication statements");
           }
 
