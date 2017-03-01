@@ -31,6 +31,9 @@
         var mstatements = smart.patient.api.fetchAll({
                     type: 'MedicationStatement',
                   });
+        var procedures = smart.patient.api.fetchAll({
+                    type: 'Procedure',
+                  });
         
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
@@ -89,18 +92,25 @@
             });
           });*/
           if (meds.length > 0) {
-            meds.forEach(function(script){
+            /*meds.forEach(function(script){
 
               p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
               p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding[0].display));
-              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));
+              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));*/
+              p.medlist.push(JSON.stringify(meds));
+
             });
           }
 
           if (mstatements.length > 0) {
-            mstatements.forEach(function(script){
-              p.mstatements.push(JSON.stringify(script));
+            /*mstatements.forEach(function(script){
+              p.mstatements.push(JSON.stringify(script));*/
+              p.mstatements.push(JSON.stringify(mstatements));
             });
+          }
+
+          if (procedures.length > 0) {
+            p.procedures.push(JSON.stringify(procedures));
           }
 
           ret.resolve(p);
@@ -130,6 +140,7 @@
       hdl: {value: ''},
       medlist: [],
       mstatements: [],
+      procedures: [],
     };
   }
 
@@ -209,6 +220,8 @@
     });
     ml = ml + "</ul>";
     $("#meds").html(ml);
+    $("#medstatements").html(p.medstatements);
+    $("#procedures").html(p.procedures);
   };
 
 })(window);
