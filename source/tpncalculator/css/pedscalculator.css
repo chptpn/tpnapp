@@ -1,0 +1,11 @@
+.disclaimer {
+	margin-top: 3em;
+}
+
+.disclaimer p {
+	font-size: 0.75em;
+}
+
+legend {
+	padding-left: 0.25em;
+}

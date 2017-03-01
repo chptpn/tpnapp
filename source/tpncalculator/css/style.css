@@ -1,0 +1,62 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 40%;
+    padding: 10px;
+}
+.left {
+    position: absolute;
+    left: 0px;
+    width: 40%;
+    padding: 10px;
+}
+.menubutton {
+    margin: auto;
+    width: 10%;
+}
+
+.button1 {
+	font-size: 20px;
+	font-family: verdana;
+	border-radius: 12px;
+	background-color: hsl(240, 100%, 70%);
+	border: none;
+	text-decoration: none;
+	 cursor: pointer;
+	 padding: 15px 30px
+}
+
+.button1:hover {background-color: hsl(240, 100%, 60%);}
+
+.button1:active {
+  background-color: hsl(240, 100%, 60%);
+  transform: translateY(4px);
+}
+
+.page {
+    margin: auto;
+    width: 50%;
+	text-align: center
+}
+
+.input1 {
+	float: right;
+	clear: both;
+}

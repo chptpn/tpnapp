@@ -21,11 +21,24 @@
                       }
                     }
                   });
+
+        var meds = smart.patient.api.fetchAll({
+                    type: 'MedicationOrder',
+                    query: {
+                      status: "active"
+                    }
+                  });
+        var mstatements = smart.patient.api.fetchAll({
+                    type: 'MedicationStatement',
+                  });
+        var procedures = smart.patient.api.fetchAll({
+                    type: 'Procedure',
+                  });
         
-
         $.when(pt, obv).fail(onError);
+        $.when(pt, meds).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, meds, procedures).done(function(patient, obv, meds, procedures) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -64,16 +77,51 @@
             p.diastolicbp = diastolicbp;
           }
 
-          p.hdl = getQuantityValueAndUnit(hdl[0]);
+          //p.hdl = getQuantityValueAndUnit(hdl[0]);
+          p.hdl = "Bactrim2";
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          ret.resolve(p);
+          /*smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
+            results.forEach(function(prescription) {
+              if (prescription.medicationCodeableConcept) {
+                p.medlist = p.medlist + " " + getMedicationName(prescription.medicationCodeableConcept.coding);
+              } else if (prescription.medicationReference) {
+                var med = refs(prescription, prescription.medicationReference);
+                p.medlist = p.medlist + " " + getMedicationName(med && med.code.coding || []);
+              }
+            });
+          });*/
+          if (meds.length > 0) {
+            /*meds.forEach(function(script){
+
+              p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
+              p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding[0].display));
+              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));
+              
+
+            });*/
+            p.medlist.push(JSON.stringify(meds));
+          }
+
+          if (mstatements.length > 0) {
+            /*mstatements.forEach(function(script){
+              p.mstatements.push(JSON.stringify(script));
+             
+            });*/
+            p.mstatements.push(JSON.stringify(mstatements));
+          } else {
+            p.mstatements.push("There were no medication statements");
+          }
+
+          if (procedures.length > 0) {
+            p.procedures.push(JSON.stringify(procedures));
+          }
+
+          ret.resolve(p); 
         });
       } else {
         onError();
-      }
-
-      
+      } 
 
     }
 
@@ -94,7 +142,9 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      medlist: {value: ''},
+      medlist: [],
+      mstatements: [],
+      procedures: [],
     };
   }
 
@@ -147,6 +197,14 @@
     }
   }
 
+  function getMedicationName (medCodings) {
+    var coding = medCodings.find(function(c){
+      return c.system == "http://www.nlm.nih.gov/research/umls/rxnorm";
+    });
+
+    return coding && coding.display || "Unnamed Medication(TM)"
+  }
+
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -159,7 +217,15 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html(p.medlist);
+    $('#hdl').html("Bactrim3");
+    ml = "<ul>";
+    p.medlist.forEach(function(m){
+      ml = ml + "<li>" + m + "</li>";
+    });
+    ml = ml + "</ul>";
+    $("#meds").html(ml);
+    $("#medstatements").html(p.mstatements);
+    $("#procedures").html(p.procedures);
   };
 
 })(window);
