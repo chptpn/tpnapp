@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TPN like fluids</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        
+        <link rel="stylesheet" href="css/normalize.css">
+        <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href='css/bootstrap.css'>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+         <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+        <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+        <script src="js/plugins.js"></script>
+        <script src="js/tpn1.js"></script>
+        <script src="js/ajax.js"></script>
+        <!--<link rel="stylesheet" href="css/tpnstylesheet.css">-->
+    </head>
+
+<body>
+
+  <div class="mainpage row">
+    <div class="col s12"> 
+      <div id="Menu">
+        <h1>TPN Calculator</h1>
+        <button id="button1" class="button1">
+          TPN-like fluids
+        </button>
+        <button id="button2" class="button1">
+          Home TPN Converter
+        </button>
+      </div>
+
+      <div id="Page1">
+        <h1>TPN-like Fluids</h1>
+        <div class="page">
+          <div class="buttondiv">
+            <button id="button3" class="button2">
+              Main Menu
+            </button>
+          </div>
+          <div class='inputs'>
+            <div class='aright'><label for="Weight">Weight (kg):</label></div>
+            <div class='aleft'><input type="number" name="Weight" id="Weight" value="15" class="tpninput"></div>
+            <div class='aright'><label for="TotalVolume">Total volume (mL):</label></div>
+            <div class='aleft'><input type="number" name="TotalVolume" id="TotalVolume" value="240" class="tpninput"></div>
+            <div class='aright'><label for="GoalRate">Goal rate (mL/hr):</label></div>
+            <div class='aleft'><input type="number" name="GoalRate" id="GoalRate" value="10" class="tpninput"></div>
+            <div class='aright'><label for="Dextrose">Dextrose (%):</label></div>
+            <div class='aleft'><input type="number" name="Dextrose" id="Dextrose" value="12" class="tpninput"></div>
+            <div class='aright'><label for="Sodium">Sodium (mEq/kg/day):</label></div>
+            <div class='aleft'><input type="number" name="Sodium" id="Sodium" value="2" class="tpninput"></div>
+            <div class='aright'><label for="Potassium">Potassium (mEq/kg/day):</label></div>
+            <div class='aleft'><input type="number" name="Potassium" id="Potassium" value="1" class="tpninput"></div>
+            <div class='aright'><label for="Acetate">Acetate (mEq/kg/day):</label></div>
+            <div class='aleft'><input type="number" name="Acetate" id="Acetate" value="0.5" class="tpninput"></div>
+            <div class='aright'><input type="radio" name="LineType" id="LineType" value="Central" checked> Central</div>
+            <div class='aleft'><input type="radio" name="LineType" id="LineType" value="Peripheral"> Peripheral</div>
+            <button id="button5" class="button1">
+              Calculate!
+            </button>
+
+          </div>
+          <p id="output1" style="display:none">
+          </p>
+
+          <p id="output2" style="display:none">
+          </p>
+      	</div>
+      </div>
+
+      <div id="Page2" style="display:none">
+        <h1>Home TPN Converter</h1>
+    	<div  class="page">
+        <button id="button4" class="button1">
+          Main Menu
+        </button>
+    	</div>
+    	<br>
+        <div style="text-align:center">
+          Weight (kg):
+          <input type="number" name="Weight2" id="Weight2">
+        </div>
+    	<br>
+
+        <div class="left">
+          Infusion volume (mL):
+          <input type="number" name="InfusionVolume" id="InfusionVolume" class="input1">
+          <br> Hydration volume (mL):
+          <input type="number" name="HydrationVolume" id="HydrationVolume" class="input1">
+          <br> Dextrose (g):
+          <input type="number" name="Dexg" id="Dexg" class="input1">
+          <br> Amino Acids (g):
+          <input type="number" name="AAg" id="AAg" class="input1">
+          <br> Lipids (g):
+          <input type="number" name="Lipidg" id="Lipidg" class="input1">
+          <br> Lipid Concentration (%):
+          <input type="number" name="LipidConc" id="LipidConc" value="20" class="input1">
+          <br> Sodium Chloride (mEq):
+          <input type="number" name="naclmeq" id="naclmeq" class="input1">
+          <br> Sodium Acetate (mEq):
+          <input type="number" name="naacemeq" id="naacemeq" class="input1">
+          <br> Sodium Phosphate (mMol):
+          <input type="number" name="naphosmmol" id="naphosmmol" class="input1">
+          <br> Potassium Chloride (mEq):
+          <input type="number" name="kclmeq" id="kclmeq" class="input1">
+          <br> Potassium Acetate (mEq):
+          <input type="number" name="kacemeq" id="kacemeq" class="input1">
+          <br> Potassium Phosphate (mMol):
+          <input type="number" name="kphosmmol" id="kphosmmol" class="input1">
+          <br> Calcium Gluconate (mEq):
+          <input type="number" name="caglucmeq" id="caglucmeq" class="input1">
+          <br> Magnesium Sulfate (mEq):
+          <input type="number" name="mgsomeq" id="mgsomeq" class="input1">
+          <br> Numbers of Hours:
+          <input type="number" name="hours" id="hours" class="input1">
+    	  <br>
+          <button id="button6" class="button1">
+            Convert to Hospital
+          </button>
+        </div>
+
+        <div class="right">
+          TPN volume (mL):
+          <input type="number" name="TPNVolume" id="TPNVolume" class="input1">
+          <br> Dextrose (%):
+          <input type="number" name="Dext" id="Dext" class="input1">
+          <br> Amino Acids (g/kg/day):
+          <input type="number" name="AA" id="AA" class="input1">
+          <br> Sodium (mEq/kg/day):
+          <input type="number" name="Namkd" id="Namkd" class="input1">
+          <br> Potassium (mEq/kg/day):
+          <input type="number" name="Kmkd" id="Kmkd" class="input1">
+          <br> Acetate (mEq/kg/day):
+          <input type="number" name="Acemkd" id="Acemkd" class="input1">
+          <br> Phosphate (mMol/kg/day):
+          <input type="number" name="Phosmkd" id="Phosmkd" class="input1">
+          <br> Calcium (mEq/kg/day):
+          <input type="number" name="Camkd" id="Camkd" class="input1">
+          <br> Magnesium (mEq/kg/day):
+          <input type="number" name="Mgmkd" id="Mgmkd" class="input1">
+          <br> Goal Rate (mL/hr):
+          <input type="number" name="Rate" id="Rate" class="input1">
+          <br>
+          <br> Lipid Emulsion (g/kg/day):
+          <input type="number" name="Lipidgkd" id="Lipidgkd" class="input1">
+          <br> 20% Lipid Volume (mL):
+          <input type="number" name="LipidVol" id="LipidVol" class="input1">
+          <br> Lipid Rate (mL/hr):
+          <input type="number" name="LipidRate" id="LipidRate" class="input1">
+          <br> Hydration Rate (mL/hr):
+          <input type="number" name="HydRate" id="HydRate" class="input1">
+    	  <br>
+          <button id="button7" class="button1">
+            Convert to Home
+          </button>
+          <button id="button8" class="button1" style="margin-right:0">
+            Create TPN-like Fluids!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
