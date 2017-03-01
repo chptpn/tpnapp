@@ -230,8 +230,8 @@ $("#button6").click(function() {
     var kclmeq = Math.max(Math.round(10 * Krem) / 10, 0);
 
     var outputtext = "Try these parameters:" + "<br/ >" 
-      + "Hydration Volume: " + hydrationVolume + "<br />" 
-      + "Infusion Volume: " + infusionVolume + "<br />" 
+      + "Infusion Volume: " + infusionVolume + " mL<br />" 
+      + "Hydration Volume: " + hydrationVolume + " mL<br />" 
       + "Dextrose: " + dexg + " grams<br />" 
       + "Amino acids: " + AAg + " grams<br />" 
       + "Lipids: " + lipidg + " grams<br />" 
@@ -243,8 +243,6 @@ $("#button6").click(function() {
       + "Potassium phosphate: " + kphosmmol + " mMol<br />" 
       + "Calcium gluconate: " + caglucmeq + " mEq<br />" 
       + "Magsium sulfate: " + mgsomeq + " mMol<br />";
-
-      alert(outputtext);
 
       $("#output4").html(outputtext);
       $("#output4").show();
