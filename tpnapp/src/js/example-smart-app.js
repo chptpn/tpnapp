@@ -109,13 +109,15 @@
              
             });*/
             p.mstatements.push(JSON.stringify(mstatements));
+          } eles {
+            p.mstatements.push("There were no medication statements");
           }
 
           if (procedures.length > 0) {
             p.procedures.push(JSON.stringify(procedures));
           }
 
-          ret.resolve(p);
+          ret.resolve(p); 
         });
       } else {
         onError();
