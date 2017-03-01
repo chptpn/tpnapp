@@ -144,10 +144,111 @@ $("#button6").click(function() {
     + "Na (mEq/kg/day): " + namkd + "<br />"
     + "K (mEq/kg/day): " + kmkd + "<br />"
     + "Acetate (mEq/kg/day): " + acemkd + "<br />"
-    + "Phos (mEq/kg/day): " + phosmkd + "<br />";
+    + "Phos (mEq/kg/day): " + phosmkd + "<br />"
     + "Rate: " + rate;
 
   $("#output3").html(outputtext);
   $("#output3").show();
   });
+
+  $("#button7").click(function() {
+    var W2 = $('#Weight3').val();
+    var TPNvol = $('#TPNVolume').val();
+    var Dexperc = $('#Dext').val();
+    var AA = $('#AA').val();
+    var Namkd = $('#Namkd').val();
+    var Kmkd = $('#Kmkd').val();
+    var Acemkd = $('#Acemkd').val();
+    var Phosmkd = $('#Phosmkd').val();
+    var Camkd = $('#Camkd').val();
+    var Mgmkd = $('#Mgmkd').val();
+    var GRate = $('#Rate').val();
+    var Lipidgkd = $('#Lipidgkd').val();
+    var LipVol = $('#LipidVol').val();
+    var LipRate = $('#LipidRate').val();
+    var HydRate = $('#HydRate').val();
+
+    var LCon = $('#LipidConc').val();
+
+    var hrs = Math.min(Math.round(TPNvol / GRate), 24);
+    
+    var hydrationVolume = +hrs * +HydRate;
+    var infusionVolume = Math.round(+TPNvol + (+LipVol * 20 / +LCon) + (+hrs * +HydRate));
+
+    var caglucmeq = Math.round(10 * +Camkd * +W2) / 10;
+    var mgsomeq = Math.round(10 * +Mgmkd * +W2) / 10;
+
+    var dexg = +Dexperc * +TPNvol / 100;
+    var AAg = +AA * +W2;
+    var lipidg = +Lipidgkd * +W2;
+
+    var Krem, Narem, Phosrem, Acerem;
+    Krem = Kmkd * W2;
+    Narem = Namkd * W2;
+    Phosrem = Phosmkd * W2;
+    Acerem = Acemkd * W2;
+    var kphosmmol = 0;
+    var naphosmmol = 0;
+    var naacemeq = 0;
+    var kacemeq = 0;
+
+    if (Phosrem * 4.4 / 3 > Krem) {
+      kphosmmol = Math.round(30 / 4.4 * +Krem) / 10;
+      Phosrem = +Phosrem - (+Krem * 3 / 4.4);
+      Krem = 0;
+    } else {
+      kphosmmol = Math.round(10 * +Phosrem) / 10;
+      Krem = Krem - (Phosrem * 4.4 / 3);
+      Phosrem = 0;
+    }
+
+    if (Phosrem * 4 / 3 > Narem) {
+      naphosmmol = Math.round(7.5 * +Narem) / 10;
+      Narem = 0;
+    } else {
+      naphosmmol = Math.round(10 * +Phosrem) / 10;
+      Narem = +Narem - (+Phosrem * 4 / 3);
+    }
+
+    if (Narem > Acerem) {
+      naacemeq = Math.round(10 * Acerem) / 10;
+      Narem = +Narem - +Acerem;
+      Acerem = 0;
+    } else if (Krem > Acerem) {
+      kacemeq = Math.round(10 * Acerem) / 10;
+      Krem = +Krem - +Acerem;
+      Acerem = 0;
+    } else {
+      kacemeq = Math.round(10 * Krem) / 10;
+      Acerem = +Acerem - +Krem;
+      Krem = 0;
+      naacemeq = Math.round(10 * Math.min(Acerem, Narem)) / 10;
+      Narem = Math.max(Narem - Acerem, 0);
+    }
+
+    var naclmeq = Math.max(Math.round(10 * Narem) / 10, 0);
+    var kclmeq = Math.max(Math.round(10 * Krem) / 10, 0);
+
+    var outputtext = "Try these parameters:" + "<br/ >" 
+      + "Hydration Volume: " + hydrationVolume + "<br />" 
+      + "Infusion Volume: " + infusionVolume + "<br />" 
+      + "Dextrose: " + dexg + " grams<br />" 
+      + "Amino acids: " + AAg + " grams<br />" 
+      + "Lipids: " + lipidg + " grams<br />" 
+      + "Sodium chloride: " + naclmeq + " mEq<br />" 
+      + "Sodium acetate: " + naacemeq + " mEq<br />" 
+      + "Sodium phosphate: " + naphosmmol + " mMol<br />" 
+      + "Potassium chloride: " + kclmeq + " mEq<br />" 
+      + "Potassium acetate: " + kacemeq + " mEq<br />" 
+      + "Potassium phosphate: " + kphosmmol + " mMol<br />" 
+      + "Calcium gluconate: " + caglucmeq + " mEq<br />" 
+      + "Magsium sulfate: " + mgsomeq + " mMol<br />";
+
+      alert(outputtext);
+
+      $("#output4").html(outputtext);
+      $("#output4").show();
+
+    });
+
 });
