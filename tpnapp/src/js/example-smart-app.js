@@ -228,13 +228,8 @@
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html("Bactrim3");
-    ml = "<ul>";
-    p.medlist.forEach(function(m){
-      ml = ml + "<li>" + m + "</li>";
-    });
-    ml = ml + "</ul>";
-    $("#meds").html(ml);
+    $('#hdl').html(p.hdl);
+    $("#meds").html(p.medlist);
     $("#medstatements").html(p.mstatements);
     $("#procedures").html(p.procedures);
   };
