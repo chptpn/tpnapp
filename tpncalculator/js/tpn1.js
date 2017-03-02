@@ -79,9 +79,6 @@ $(document).ready(function() {
 
     text1 = "Sodium (mEq/L): " + TotSodium + "<br>" + "Potassium (mEq/L): " + TotPotassium + "<br>" + "Acetate (mEq/L): " + TotAcetate;
 
-    $("#output1").html(text1);
-    $("#output1").show();
-
     text2 = "Try these fluids:" + "<br>" + "D" + Dextrose + " " + salinechoice;
     if (KCl > 0) {
       text2 = text2 + " + " + KCl + " mEq/L KCl";
@@ -138,14 +135,14 @@ $("#button6").click(function() {
   var acemkd = Math.round(10 * (+naacemeq + +kacemeq) / Weight2) / 10;
   var phosmkd = Math.round(10 * (+naphosmmol + +kphosmmol) / Weight2) / 10;
 
-  var outputtext = "Try these parameters:" + "<br/ >" 
-    + "TPN volume: " + TPNVolume + "<br />" 
-    + "Dextrose conc: " + Dext + "<br />"
-    + "Na (mEq/kg/day): " + namkd + "<br />"
-    + "K (mEq/kg/day): " + kmkd + "<br />"
-    + "Acetate (mEq/kg/day): " + acemkd + "<br />"
-    + "Phos (mEq/kg/day): " + phosmkd + "<br />"
-    + "Rate: " + rate;
+  var outputtext = "<u>Try these parameters:</u>" + "<br/ >" 
+    + "TPN volume: " + TPNVolume + " mL<br />" 
+    + "Dextrose conc: " + Dext + "%<br />"
+    + "Sodium: " + namkd + " mEq/kg/day<br />"
+    + "Potassium: " + kmkd + " mEq/kg/day<br />"
+    + "Acetate: " + acemkd + " mEq/kg/day<br />"
+    + "Phos: " + phosmkd + " mEq/kg/day<br />"
+    + "Rate: " + rate + " mL/hr";
 
   $("#output3").html(outputtext);
   $("#output3").show();
@@ -229,7 +226,7 @@ $("#button6").click(function() {
     var naclmeq = Math.max(Math.round(10 * Narem) / 10, 0);
     var kclmeq = Math.max(Math.round(10 * Krem) / 10, 0);
 
-    var outputtext = "Try these parameters:" + "<br/ >" 
+    var outputtext = "<u>Try these parameters:</u>" + "<br/ >" 
       + "Infusion Volume: " + infusionVolume + " mL<br />" 
       + "Hydration Volume: " + hydrationVolume + " mL<br />" 
       + "Dextrose: " + dexg + " grams<br />" 

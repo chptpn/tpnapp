@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+    	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    </head>
+
+<body>
+
+<script>
+$(document).ready(function() {
+a = [{"resourceType":"MedicationOrder","id":"21833893","meta":{"versionId":"0","lastUpdated":"2016-09-02T20:41:10.000Z"},"text":{"status":"generated","div":"Medication Order Patient Name: SMART, FRED RICK Medication Name: Aetaminophen-hydrocodone (acetaminophen-hydrocodone 325 mg-5 mg oral tablet) Dosage Instructions: 1 tabs, Oral, BID Status: Active"},"dateWritten":"2016-09-02T15:39:09.000-05:00","status":"active","patient":{"reference":"Patient/4478007","display":"SMART, FRED RICK"},"prescriber":{"reference":"Practitioner/1614008","display":"Hanov, Yegor"},"encounter":{"reference":"Encounter/4135906"},"medicationCodeableConcept":{"coding":[{"system":"http://www.nlm.nih.gov/research/umls/rxnorm","code":"857002","display":"Acetaminophen 325 MG / Hydrocodone Bitartrate 5 MG Oral Tablet","userSelected":false}],"text":"acetaminophen-hydrocodone (acetaminophen-hydrocodone 325 mg-5 mg oral tablet)"},"dosageInstruction":[{"text":"1 tabs, Oral, BID","_text":{"extension":[{"url":"https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display","valueString":"1 Tabs Oral 2 times a day. Refills: 0."}]},"timing":{"repeat":{"boundsPeriod":{"start":"2016-09-02T13:39:00.000-07:00"}},"code":{"coding":[{"system":"http://hl7.org/fhir/v3/GTSAbbreviation","code":"BID","display":"BID","userSelected":false}],"text":"BID"}},"route":{"coding":[{"system":"http://ncimeta.nci.nih.gov","code":"C38288","display":"ORAL","userSelected":false}],"text":"Oral"},"doseQuantity":{"value":1,"unit":"tabs","system":"http://unitsofmeasure.org","code":"{tbl}"}}],"dispenseRequest":{"validityPeriod":{"start":"2016-09-02T15:39:09.000-05:00"}}},{"resourceType":"MedicationOrder","id":"21833923","meta":{"versionId":"0","lastUpdated":"2016-09-02T20:24:40.000Z"},"text":{"status":"generated","div":"Medication Order Patient Name: SMART, FRED RICK Medication Name: digoxin Dosage Instructions: 0.125 mg, 1 tabs, Oral, Daily Status: Active"},"dateWritten":"2016-09-02T15:13:02.000-05:00","status":"active","patient":{"reference":"Patient/4478007","display":"SMART, FRED RICK"},"prescriber":{"reference":"Practitioner/1614008","display":"Hanov, Yegor"},"encounter":{"reference":"Encounter/4135906"},"note":"Order Comment: hold if heart rate less than 60 bpm","medicationCodeableConcept":{"coding":[{"system":"http://www.nlm.nih.gov/research/umls/rxnorm","code":"3407","display":"Digoxin","userSelected":false}],"text":"digoxin"},"dosageInstruction":[{"text":"0.125 mg, 1 tabs, Oral, Daily","_text":{"extension":[{"url":"https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display","valueString":"0.125 Milligram Oral every day. Refills: 0."}]},"timing":{"repeat":{"boundsPeriod":{"start":"2016-09-02T13:13:00.000-07:00"}},"code":{"coding":[{"system":"http://hl7.org/fhir/timing-abbreviation","code":"QD","display":"QD","userSelected":false}],"text":"Daily"}},"route":{"coding":[{"system":"http://ncimeta.nci.nih.gov","code":"C38288","display":"ORAL","userSelected":false}],"text":"Oral"},"doseQuantity":{"value":0.125,"unit":"mg","system":"http://unitsofmeasure.org","code":"mg"}}],"dispenseRequest":{"validityPeriod":{"start":"2016-09-02T15:13:02.000-05:00"}}},{"resourceType":"MedicationOrder","id":"21818005","meta":{"versionId":"0","lastUpdated":"2016-09-02T20:32:26.000Z"},"text":{"status":"generated","div":"Medication Order Patient Name: SMART, FRED RICK Medication Name: insulin regular Dosage Instructions: 10 unit(s), 0.1 mL, Subcutaneous, Daily Status: Active"},"dateWritten":"2016-09-02T15:30:23.000-05:00","status":"active","patient":{"reference":"Patient/4478007","display":"SMART, FRED RICK"},"prescriber":{"reference":"Practitioner/1614008","display":"Hanov, Yegor"},"encounter":{"reference":"Encounter/4135906"},"medicationCodeableConcept":{"coding":[{"system":"http://www.nlm.nih.gov/research/umls/rxnorm","code":"221109","display":"Insulin, Regular, Pork","userSelected":false}],"text":"insulin regular"},"dosageInstruction":[{"text":"10 unit(s), 0.1 mL, Subcutaneous, Daily","_text":{"extension":[{"url":"https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display","valueString":"10 Units Subcutaneous every day. Refills: 0."}]},"timing":{"repeat":{"boundsPeriod":{"start":"2016-09-02T13:30:00.000-07:00"}},"code":{"coding":[{"system":"http://hl7.org/fhir/timing-abbreviation","code":"QD","display":"QD","userSelected":false}],"text":"Daily"}},"route":{"coding":[{"system":"http://ncimeta.nci.nih.gov","code":"C38299","display":"SUBCUTANEOUS","userSelected":false}],"text":"Subcutaneous"},"doseQuantity":{"value":10,"unit":"unit(s)","system":"http://unitsofmeasure.org","code":"U"}}],"dispenseRequest":{"validityPeriod":{"start":"2016-09-02T15:30:23.000-05:00"}}},{"resourceType":"MedicationOrder","id":"22053989","meta":{"versionId":"0","lastUpdated":"2016-09-19T16:25:38.000Z"},"text":{"status":"generated","div":"Medication Order Patient Name: SMART, FRED RICK Medication Name: oxycodone (oxycodone 20 mg oral tablet, extended release) Dosage Instructions: 20 mg, 1 tab(s), Oral, q12hr, 60 tabs, 0 Refill(s) Status: Active"},"dateWritten":"2016-09-19T11:21:56.000-05:00","status":"active","patient":{"reference":"Patient/4478007","display":"SMART, FRED RICK"},"prescriber":{"reference":"Practitioner/4474007","display":"Pickering, Kathy"},"encounter":{"reference":"Encounter/4135906"},"medicationCodeableConcept":{"coding":[{"system":"http://www.nlm.nih.gov/research/umls/rxnorm","code":"1049563","display":"12 HR Oxycodone Hydrochloride 20 MG Extended Release Tablet","userSelected":false}],"text":"oxycodone (oxycodone 20 mg oral tablet, extended release)"},"dosageInstruction":[{"text":"20 mg, 1 tab(s), Oral, q12hr, 60 tabs, 0 Refill(s)","_text":{"extension":[{"url":"https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display","valueString":"1 Tabs Oral every 12 hours. Refills: 0."}]},"timing":{"repeat":{"boundsPeriod":{"start":"2016-09-19T09:20:00.000-07:00"}},"code":{"text":"q12hr"}},"route":{"coding":[{"system":"http://ncimeta.nci.nih.gov","code":"C38288","display":"ORAL","userSelected":false}],"text":"Oral"},"doseQuantity":{"value":1,"unit":"tab(s)","system":"http://unitsofmeasure.org","code":"{tbl}"}}],"dispenseRequest":{"validityPeriod":{"start":"2016-09-19T11:21:56.000-05:00"},"numberOfRepeatsAllowed":0,"quantity":{"value":60,"unit":"tabs","system":"http://unitsofmeasure.org","code":"{tbl}"}}}];
+
+var output = "<ul>";
+
+var count = 0;
+
+a.forEach(function(medOrder) {
+	count += 1;
+	output += "<li><u>Order" + count + "</u><ul>";
+	output += "<li>" + medOrder.medicationCodeableConcept.coding[0].display + "</li>";
+	output += "<li>" + medOrder.dosageInstruction[0].text + "</li>";
+	output += printOutput(medOrder);
+	output += "</ul></li>";
+	output += "</ul>";
+});
+
+$("#output").html(output);
+
+function printOutput(part) {
+	var output = "<ul>";
+	for (var key in part) {
+		output += "<li><b>" + key + "</b>: ";
+		if (typeof part[key] == "string") {
+			output += part[key] + "</li>";
+		} else {
+			var b = printOutput(part[key]);
+			output += String(b);
+		}
+	}
+	output += "</ul>";
+	return output;
+}
+
+});
+
+</script>
+
+<div id="output"></div>
+
+</body>
+</html>

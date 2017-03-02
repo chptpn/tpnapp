@@ -1,5 +1,5 @@
 body {
-	background-color: #F4F4F4;
+	background-color: #F9F9F9;
 }
 
 .tabs .indicator {
@@ -29,6 +29,9 @@ body {
 	color: #FFFFFF;
 }
 
+.chp-logo {
+    padding-top: 10px;
+}
 
 ul.side-nav li a {
     display: block;
@@ -52,7 +55,8 @@ a:hover {
 }
 
 .page {
-	padding-top: 1rem;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 ul a {
@@ -82,4 +86,37 @@ input[type="radio"]:checked, input[type="checkbox"] {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
   background-color: #342f92;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #342f92;
+    box-shadow: 0 1px 0 0 #342f92;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #342f92;
+}
+
+.page_title {
+	margin-left: 300px;
+}
+
+.lighter-color {
+    color: rgba(0,0,0,0.71);
+}
+
+.tabs .tab {
+    text-transform: none;
+}
+
+footer {
+    width: 100%;
+}
+
+h1 {
+    margin: 1rem 0;
+}
+
+.logo-pos {
+    margin: 1rem 0;
 }
