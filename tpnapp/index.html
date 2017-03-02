@@ -4,10 +4,42 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <title>CHP TPN Example-SMART-App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../tpncalculator/css/normalize.css">
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href='../tpncalculator/css/bootstrap.css'>
+    <link rel="stylesheet" href="../tpncalculator/css/main.css">
+    <link rel="stylesheet" href="../tpncalculator/css/jquery-ui.css">
+    <script src="../tpncalculator/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+    <script src="../tpncalculator/js/plugins.js"></script>
+    <script src="../tpncalculator/js/tpn1.js"></script>
+    <script src="../tpncalculator/js/ajax.js"></script>
+    <link rel="stylesheet" href="../tpncalculator/css/tpncss.css">
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
   </head>
   <body>
+    <header>
+      <nav class="nav-extended chppurple container page">
+        <div class="nav-wrapper">
+          <div class="col s12"><a href="#" class="brand-logo left"><img class="chp-logo logo-pos" src="images/chp_web_logo.png" /></a><h1 class="white-text left page_title">TPN Calculator - Cerner</h1></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container z-depth-2">
     <div id='errors'>
     </div>
     <div id="loading" class="spinner">
@@ -16,72 +48,67 @@
       <div class="bounce3"></div>
     </div>
     <div id='holder' >
-      <h2>Example-SMART-App</h2>
-
-      <h2>Patient Resource</h2>
-      <table>
-        <tr>
-          <th>First Name:</th>
-          <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
-        </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
-      </table>
+      
+        <div class="row">
+          <div class="col s3">First Name:</div>
+          <div class="col s9" id='fname'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Last Name:</div>
+          <div class="col s9" id='lname'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Gender:</div>
+          <div class="col s9" id='gender'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Date of Birth:</div>
+          <div class="col s9" id='birthdate'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Age:</div>
+          <div class="col s9" id='age'></div>
+        </div>
       <h2>Observation Resource</h2>
-      <table>
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
+        <div class="row">
+          <div class="col s3">Height:</div>
+          <div class="col s9" id='height'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Systolic Blood Pressure:</div>
+          <div class="col s9" id='systolicbp'></div>
 
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-        <tr>
-          <th>Meds:</th>
-          <td id="meds"></td>
-        </tr>
-        <tr>
-          <th>Med statement:</th>
-          <td id="medstatements"></td>
-        </tr>
-        <tr>
-          <th>Procedures:</th>
-          <td id="procedures"></td>
-        </tr>
-      </table>
+        </div>
+        <div class="row">
+          <div class="col s3">Diastolic Blood Pressure:</div>
+          <div class="col s9" id='diastolicbp'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">LDL:</div>
+          <div class="col s9" id='ldl'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">HDL:</div>
+          <div class="col s9" id='hdl'></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Meds:</div>
+          <div class="col s9" id="meds"></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Med statement:</div>
+          <div class="col s9" id="medstatements"></div>
+        </div>
+        <div class="row">
+          <div class="col s3">Procedures:</div>
+          <div class="col s9" id="procedures"></div>
+        </div>
     </div>
+  </div>
+</main>
     <script src='./lib/es6-shim-0.35.1.min.js'></script>
     <script src='./src/js/example-smart-app.js'></script>
     <script src='./lib/fhir-client.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success

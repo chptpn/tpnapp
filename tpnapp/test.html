@@ -1,7 +1,15 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>
-    	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TPN like fluids</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+ 
+        <!--<link rel="stylesheet" href="css/tpnstylesheet.css">-->
     </head>
 
 <body>
@@ -17,12 +25,12 @@ var count = 0;
 a.forEach(function(medOrder) {
 	count += 1;
 	output += "<li><u>Order" + count + "</u><ul>";
-	output += "<li>" + medOrder.medicationCodeableConcept.coding[0].display + "</li>";
-	output += "<li>" + medOrder.dosageInstruction[0].text + "</li>";
-	output += printOutput(medOrder);
+	output += "<li>" + parseMedicationOrder(medOrder) + "</li>";
+	//output += printOutput(medOrder);
 	output += "</ul></li>";
-	output += "</ul>";
+	
 });
+output += "</ul>";
 
 $("#output").html(output);
 
@@ -39,6 +47,20 @@ function printOutput(part) {
 	}
 	output += "</ul>";
 	return output;
+}
+
+function parseMedicationOrder(medOrder) {
+	var parts = ["resourceType", "id", "meta", "text", "dateWritten", "status", "patient", "prescriber", "encounter", "medicationCodeableConcept", "dosageInstruction", "dispenseRequest"];
+
+	var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
+		return c;
+	});
+
+	var doseInst = medOrder["dosageInstruction"].find(function(c) {
+		return c;
+	});
+
+	return coding.display + " " + doseInst.text;
 }
 
 });
