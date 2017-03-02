@@ -9,7 +9,7 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-        
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
         <link rel="stylesheet" href='css/bootstrap.css'>
@@ -32,21 +32,25 @@
 
 <body>
 
-  <div class="container">
-    <div class="row header">
-      <div class="col s12">
-        <h1 class="center-align">TPN Calculator</h1>
-        <ul class="tabs">
-          <li class="tab col s3"><a href="#Page1" class="blue-text text-darken-2">TPN-like fluids</a></li>
-          <li class="tab col s4"><a href="#Page2" class="blue-text text-darken-2">Home-to-Hospital TPN</a></li>
-          <li class="tab col s4"><a href="#Page3" class="blue-text text-darken-2">Hospital-to-Home TPN</a></li>
-        </ul>
-      </div>
-    </div>
-        
 
-    <div id="Page1">
-      <div class="page">
+      <nav class="nav-extended chppurple">
+        <div class="nav-wrapper container">
+          <div class="row">
+          <div class="col s3"><a href="#" class="brand-logo"><img class="pd" src="images/chp_web_logo.png" /></a></div>
+          <div class="col s9"><h1 class="white-text">TPN Calculator</h1></div>
+        </div>
+        </div>
+        <div class="nav-content container">
+          <ul class="tabs tabs-transparent left">
+            <li class="tab col s3"><a href="#Page1" class="white-text">TPN-like fluids</a></li>
+            <li class="tab col s4"><a href="#Page2" class="white-text">Home-to-Hospital TPN</a></li>
+            <li class="tab col s4"><a href="#Page3" class="white-text">Hospital-to-Home TPN</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+    <div class="container">
+    <div id="Page1" class="pd">
         <div class='inputs section row'>
           <div class='col s3 input-field'>
             
@@ -94,10 +98,9 @@
             <p id="output2" style="display:none"></p>
           </div>
         </div>
-    	</div>
     </div>
 
-    <div id="Page2" style="display:none">
+    <div id="Page2" class="pd" style="display:none">
       <div class="inputs section row">
          <div class="col s3 input-field">
             <input type="number" name="Weight2" id="Weight2" value="15" />
@@ -187,7 +190,7 @@
       </div>
     </div>
 
-  <div id='Page3' style="display:none">
+  <div id='Page3' class="pd" style="display:none">
 
     <div class="inputs section row">
          <div class="col s3 input-field">

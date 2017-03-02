@@ -1,7 +1,85 @@
-.tabs .indicator {
-    background-color: #1976d2;
+body {
+	background-color: #F4F4F4;
 }
 
-.header {
-	background-image: "../images/background_chp.png";
+.tabs .indicator {
+    /*background-color: #1976d2;*/
+    background-color: #FFFFFF;
+}
+
+.sn {
+	background-color: #342f92;
+}
+
+.sn-first {
+	margin-top: 50px;
+}
+
+.chppurple {
+	background-color: #342f92;
+}
+
+.btn, .btn:focus {
+	background-color: #342f92;
+	color: #FFFFFF;
+}
+
+.btn:hover {
+	background-color: #6863e5;
+	color: #FFFFFF;
+}
+
+
+ul.side-nav li a {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+}
+
+.tabs a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.pd {
+	margin-top: 40px;
+}
+
+.page {
+	padding-top: 1rem;
+}
+
+ul a {
+	    transition: background-color .3s;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: initial;
+    transition-delay: initial;
+        font-size: 1rem;
+    color: #fff;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked, input[type="checkbox"] {
+	background-color: #342f92;
+	color: #342f92;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:before,
+[type="radio"].with-gap:checked + label:after {
+  border: 2px solid #342f92;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after {
+  background-color: #342f92;
 }
