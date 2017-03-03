@@ -208,9 +208,13 @@
   function parseMedicationOrder(medOrder) {
     var parts = ["resourceType", "id", "meta", "text", "dateWritten", "status", "patient", "prescriber", "encounter", "medicationCodeableConcept", "dosageInstruction", "dispenseRequest"];
 
-    var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
-      return c;
-    });
+    if (typeof medOrder["medicationCodeableConcept"].coding != "undefined") {
+      var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
+        return c;
+      });
+    } else {
+      return "Unknown medication";
+    }
 
     var doseInst = medOrder["dosageInstruction"].find(function(c) {
       return c;
