@@ -77,8 +77,7 @@
             p.diastolicbp = diastolicbp;
           }
 
-          //p.hdl = getQuantityValueAndUnit(hdl[0]);
-          p.hdl = "Bactrim2";
+          p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           /*smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
@@ -91,16 +90,14 @@
               }
             });
           });*/
-          if (meds.length > 0) {
-            /*meds.forEach(function(script){
-
-              p.medlist.push(getMedicationName(script.medicationCodeableConcept.coding));
-              p.medlist.push(JSON.stringify(script.medicationCodeableConcept.coding[0].display));
-              p.medlist.push(JSON.stringify(script.dosageInstruction[0].text));
-              
-
-            });*/
-            p.medlist.push(JSON.stringify(meds));
+          
+          if (meds.length > 0 && typeof meds != 'undefined') {
+            p.medlist = "<ul>";
+            meds.forEach(function(script){
+              p.medlist += "<li>" + parseMedicationOrder(script) + "</li>";
+            });
+            p.medlist += "</ul>";
+            //p.medlist.push(JSON.stringify(meds));
           }
 
           if (mstatements.length > 0) {
@@ -142,7 +139,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      medlist: [],
+      medlist: "",
       mstatements: [],
       procedures: [],
     };
@@ -205,27 +202,35 @@
     return coding && coding.display || "Unnamed Medication(TM)"
   }
 
+  function parseMedicationOrder(medOrder) {
+    var parts = ["resourceType", "id", "meta", "text", "dateWritten", "status", "patient", "prescriber", "encounter", "medicationCodeableConcept", "dosageInstruction", "dispenseRequest"];
+
+    var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
+      return c;
+    });
+
+    var doseInst = medOrder["dosageInstruction"].find(function(c) {
+      return c;
+    });
+
+    return coding.display + " " + doseInst.text;
+  }
+
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#fname').html(p.fname);
-    $('#lname').html(p.lname);
+    $('#ptname').html(p.fname + " " + p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#age').html(p.age);
-    $('#height').html(p.height);
+    $('#age').append(p.age);
+    /*$('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html("Bactrim3");
-    ml = "<ul>";
-    p.medlist.forEach(function(m){
-      ml = ml + "<li>" + m + "</li>";
-    });
-    ml = ml + "</ul>";
-    $("#meds").html(ml);
-    $("#medstatements").html(p.mstatements);
-    $("#procedures").html(p.procedures);
+    $('#hdl').html(p.hdl);*/
+    $("#meds").append(p.medlist);
+    /*$("#medstatements").html(p.mstatements);
+    $("#procedures").html(p.procedures);*/
   };
 
 })(window);

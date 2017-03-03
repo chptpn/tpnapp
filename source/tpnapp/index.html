@@ -4,84 +4,80 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <title>CHP TPN Example-SMART-App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../tpncalculator/css/normalize.css">
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href='../tpncalculator/css/bootstrap.css'>
+    <link rel="stylesheet" href="../tpncalculator/css/main.css">
+    <link rel="stylesheet" href="../tpncalculator/css/jquery-ui.css">
+    <script src="../tpncalculator/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+    <script src="../tpncalculator/js/plugins.js"></script>
+    <script src="../tpncalculator/js/tpn1.js"></script>
+    <script src="../tpncalculator/js/ajax.js"></script>
+    <link rel="stylesheet" href="../tpncalculator/css/tpncss.css">
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
   </head>
   <body>
-    <div id='errors'>
-    </div>
-    <div id="loading" class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
+    <header>
+      <nav class="chppurple">
+        <div class="nav-wrapper container page">
+          <div class="col s12">
+            <a href="#" class="left"><img src="../tpncalculator/images/tpn_logo_small.png" /></a>
+            <ul id="nav-mobile" class="tabs tabs-transparent right pull-s1">
+              <li class="tab"><a href="#Page1" class="white-text">TPN-like fluids</a></li>
+              <li class="tab"><a href="#Page2" class="white-text">Home-to-Hospital TPN</a></li>
+              <li class="tab"><a href="#Page3" class="white-text">Hospital-to-Home TPN</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="page">
+          <p id='errors'></p>
+        </div>
+        <div id="loading" class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
     <div id='holder' >
-      <h2>Example-SMART-App</h2>
-
-      <h2>Patient Resource</h2>
-      <table>
-        <tr>
-          <th>First Name:</th>
-          <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
-        </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
-      </table>
-      <h2>Observation Resource</h2>
-      <table>
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
-
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-        <tr>
-          <th>Meds:</th>
-          <td id="meds"></td>
-        </tr>
-        <tr>
-          <th>Med statement:</th>
-          <td id="medstatements"></td>
-        </tr>
-        <tr>
-          <th>Procedures:</th>
-          <td id="procedures"></td>
-        </tr>
-      </table>
+      
+        <div class="row">
+          <div class="col s12"><h3 id="ptname"></h3></div>
+        </div>
+        <div class="row">
+          <div class="col s12"><p id="gender"></p></div>
+        </div>
+        <div class="row">
+          <div class="col s12"><p id='birthdate'></p></div>
+        </div>
+        <div class="row">
+          <div class="col s12"><p id="age">Age: </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12" id="meds"><p><u>Current medications:</u></p></div>
+        </div>
     </div>
+  </div>
+</main>
     <script src='./lib/es6-shim-0.35.1.min.js'></script>
     <script src='./src/js/example-smart-app.js'></script>
     <script src='./lib/fhir-client.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success
