@@ -31,22 +31,30 @@
   </head>
   <body>
     <header>
-      <nav class="nav-extended chppurple container page">
-        <div class="nav-wrapper">
-          <div class="col s12"><a href="#" class="brand-logo left"><img class="chp-logo logo-pos" src="../tpncalculator/images/chp_web_logo.png" /></a><h1 class="white-text left page_title">TPN Calculator - Cerner</h1></div>
+      <nav class="chppurple">
+        <div class="nav-wrapper container page">
+          <div class="col s12">
+            <a href="#" class="left"><img src="../tpncalculator/images/tpn_logo_small.png" /></a>
+            <ul id="nav-mobile" class="tabs tabs-transparent right pull-s1">
+              <li class="tab"><a href="#Page1" class="white-text">TPN-like fluids</a></li>
+              <li class="tab"><a href="#Page2" class="white-text">Home-to-Hospital TPN</a></li>
+              <li class="tab"><a href="#Page3" class="white-text">Hospital-to-Home TPN</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
 
     <main>
-      <div class="container z-depth-2">
-    <div id='errors'>
-    </div>
-    <div id="loading" class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
+      <div class="container">
+        <div>
+          <p id='errors'></p>
+        </div>
+        <div id="loading" class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
     <div id='holder' >
       
         <div class="row">
