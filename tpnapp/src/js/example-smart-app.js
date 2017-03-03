@@ -228,7 +228,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);*/
-    $("#meds").html(p.medlist);
+    $("#meds").append(p.medlist);
     /*$("#medstatements").html(p.mstatements);
     $("#procedures").html(p.procedures);*/
   };
