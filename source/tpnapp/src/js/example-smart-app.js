@@ -28,17 +28,17 @@
                       status: "active"
                     }
                   });
-        var mstatements = smart.patient.api.fetchAll({
+        /*var mstatements = smart.patient.api.fetchAll({
                     type: 'MedicationStatement',
                   });
         var procedures = smart.patient.api.fetchAll({
                     type: 'Procedure',
-                  });
+                  });*/
         
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
 
-        $.when(pt, obv, meds, procedures).done(function(patient, obv, meds, procedures) {
+        $.when(pt, obv, meds).done(function(patient, obv, meds) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
@@ -94,17 +94,19 @@
           if (meds.length > 0 && typeof meds != 'undefined') {
             p.medlist = "<ul>";
             meds.forEach(function(script){
-              p.medlist += "<li>" + parseMedicationOrder(script) + "</li>";
+              if (typeof script != "undefined") {
+                p.medlist += "<li>" + parseMedicationOrder(script) + "</li>";
+              }
             });
             p.medlist += "</ul>";
             //p.medlist.push(JSON.stringify(meds));
           }
-
+/*
           if (mstatements.length > 0) {
-            /*mstatements.forEach(function(script){
-              p.mstatements.push(JSON.stringify(script));
+            mstatements.forEach(function(script){
+            p.mstatements.push(JSON.stringify(script));
              
-            });*/
+            });
             p.mstatements.push(JSON.stringify(mstatements));
           } else {
             p.mstatements.push("There were no medication statements");
@@ -113,6 +115,7 @@
           if (procedures.length > 0) {
             p.procedures.push(JSON.stringify(procedures));
           }
+          */
 
           ret.resolve(p); 
         });
@@ -205,9 +208,13 @@
   function parseMedicationOrder(medOrder) {
     var parts = ["resourceType", "id", "meta", "text", "dateWritten", "status", "patient", "prescriber", "encounter", "medicationCodeableConcept", "dosageInstruction", "dispenseRequest"];
 
-    var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
-      return c;
-    });
+    if (typeof medOrder["medicationCodeableConcept"].coding != "undefined") {
+      var coding = medOrder["medicationCodeableConcept"].coding.find(function(c) {
+        return c;
+      });
+    } else {
+      return "Unknown medication";
+    }
 
     var doseInst = medOrder["dosageInstruction"].find(function(c) {
       return c;
