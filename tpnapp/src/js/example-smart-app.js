@@ -38,7 +38,7 @@
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
 
-        $.when(pt, obv, meds, procedures).done(function(patient, obv, meds, procedures) {
+        $.when(pt, obv, meds).done(function(patient, obv, meds) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
