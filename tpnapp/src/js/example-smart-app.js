@@ -94,7 +94,7 @@
           if (meds.length > 0) {
             p.medlist = "<ul>";
             meds.forEach(function(script){
-              p.medlist += parseMedicationOrder;
+              p.medlist += parseMedicationOrder(script);
             });
             p.medlist += "</ul>";
             //p.medlist.push(JSON.stringify(meds));
