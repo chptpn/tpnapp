@@ -28,12 +28,12 @@
                       status: "active"
                     }
                   });
-        var mstatements = smart.patient.api.fetchAll({
+        /*var mstatements = smart.patient.api.fetchAll({
                     type: 'MedicationStatement',
                   });
         var procedures = smart.patient.api.fetchAll({
                     type: 'Procedure',
-                  });
+                  });*/
         
         $.when(pt, obv).fail(onError);
         $.when(pt, meds).fail(onError);
@@ -99,12 +99,12 @@
             p.medlist += "</ul>";
             //p.medlist.push(JSON.stringify(meds));
           }
-
+/*
           if (mstatements.length > 0) {
-            /*mstatements.forEach(function(script){
-              p.mstatements.push(JSON.stringify(script));
+            mstatements.forEach(function(script){
+            p.mstatements.push(JSON.stringify(script));
              
-            });*/
+            });
             p.mstatements.push(JSON.stringify(mstatements));
           } else {
             p.mstatements.push("There were no medication statements");
@@ -113,6 +113,7 @@
           if (procedures.length > 0) {
             p.procedures.push(JSON.stringify(procedures));
           }
+          */
 
           ret.resolve(p); 
         });
