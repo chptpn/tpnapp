@@ -94,7 +94,7 @@
           if (meds.length > 0) {
             p.medlist = "<ul>";
             meds.forEach(function(script){
-              p.medlist += parseMedicationOrder(script);
+              p.medlist += "<li>" + parseMedicationOrder(script) + "</li>";
             });
             p.medlist += "</ul>";
             //p.medlist.push(JSON.stringify(meds));
@@ -219,19 +219,18 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#fname').html(p.fname);
-    $('#lname').html(p.lname);
+    $('#ptname').html(p.fname + " " + p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#age').html(p.age);
-    $('#height').html(p.height);
+    $('#age').append(p.age);
+    /*$('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+    $('#hdl').html(p.hdl);*/
     $("#meds").html(p.medlist);
-    $("#medstatements").html(p.mstatements);
-    $("#procedures").html(p.procedures);
+    /*$("#medstatements").html(p.mstatements);
+    $("#procedures").html(p.procedures);*/
   };
 
 })(window);
