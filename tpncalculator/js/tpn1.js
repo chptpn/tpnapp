@@ -136,13 +136,18 @@ $("#button6").click(function() {
   var phosmkd = Math.round(10 * (+naphosmmol + +kphosmmol) / Weight2) / 10;
 
   var outputtext = "<u>Try these parameters:</u>" + "<br/ >" 
-    + "TPN volume: " + TPNVolume + " mL<br />" 
+    + "TPN volume: " + TPNVolume + " mL<br />"
+    + "Amino acids: " + aa + " g/kg/day<br />"  
     + "Dextrose conc: " + Dext + "%<br />"
     + "Sodium: " + namkd + " mEq/kg/day<br />"
     + "Potassium: " + kmkd + " mEq/kg/day<br />"
     + "Acetate: " + acemkd + " mEq/kg/day<br />"
     + "Phos: " + phosmkd + " mEq/kg/day<br />"
-    + "Rate: " + rate + " mL/hr";
+    + "Calcium:" + camkd + " mEq/kg/day<br />"
+    + "Magnesium: " + mgmkd + " mEq/kg/day<br />" 
+    + "TPN Rate: " + rate + " mL/hr<br /><br />"
+    + "Lipids: " + lipidVol + " mL running at " + lipidRate + " mL/hr";
+    
 
   $("#output3").html(outputtext);
   $("#output3").show();
@@ -239,7 +244,8 @@ $("#button6").click(function() {
       + "Potassium acetate: " + kacemeq + " mEq<br />" 
       + "Potassium phosphate: " + kphosmmol + " mMol<br />" 
       + "Calcium gluconate: " + caglucmeq + " mEq<br />" 
-      + "Magsium sulfate: " + mgsomeq + " mMol<br />";
+      + "Magsium sulfate: " + mgsomeq + " mMol<br />"
+      + "Running for " + hrs + " hours";
 
       $("#output4").html(outputtext);
       $("#output4").show();
