@@ -50,6 +50,8 @@ $(document).ready(function() {
       Dextrose = Math.min(Dextrose, 12.5);
     }
 
+    //Round dextrose to nearest 5
+
     var saline = [154, 115.5, 77, 38.5, 0];
     var saline2 = ["NS", "3/4 NS", "1/2 NS", "1/4 NS", "W"];
     var salinechoice = "";
